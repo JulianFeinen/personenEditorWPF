@@ -1,0 +1,38 @@
+USE [julidatabank]
+GO
+
+drop table BEARBEITER;
+SET ANSI_NULLS ON
+GO 
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[BEARBEITER](
+	[BEARBEITERID] [int] IDENTITY(1,1) NOT NULL,
+	[USERNAME] [varchar](45) NULL,
+    [NACHNAME] [varchar](45) NULL,
+    [VORNAME] [varchar](45) NULL,
+    [RANG] [varchar](45) NULL,
+    [RITES] [varchar](45) NULL,
+    [INITIAL_] [varchar](45) NULL,
+    [AKTIV] [smallint] NULL,
+    [ABTEILUNG] [varchar](45) NULL,
+    [TELEFON] [varchar](145) NULL,
+    [FAX] [varchar](145) NULL,
+    [KUERZEL1] [char](2) NULL,
+    [NAMENSZUSATZ] [varchar](45) NULL,
+    [EMAIL] [varchar](45) NULL,
+    [ROLLE] [varchar](145) NULL,
+    [EXPANDHEADERINSACHGEBIET] [varchar](245) NULL,
+    [STDGRANTS] [varchar](200) NULL,
+    [anrede] [varchar](50) NOT NULL,
+PRIMARY KEY CLUSTERED
+(
+    [BEARBEITERID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+ALTER TABLE [dbo].[BEARBEITER] ADD  CONSTRAINT [DF_BEARBEITER_anrede]  DEFAULT ('Herr') FOR [anrede]
+GO
